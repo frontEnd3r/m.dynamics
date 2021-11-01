@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Продвижение</title>
-    <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="./owlslider/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="./owlslider/assets/owl.theme.default.min.css">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="The Rock" />
+    <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
+    <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
+    <link rel="stylesheet" href="./css/swiper.min.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/promotion.css">
 </head>
@@ -19,26 +22,43 @@
             <div class="container">
                 <div class="header-top-wrap">
                     <div class="header-top-wrap-logo">
-                        <img src="./img/promotion/Logo-img.png" alt="" class="header-top-wrap-logo__img">
+                        <img src="./img/promotion/Logo-img.webp" alt="" class="header-top-wrap-logo__img">
                         <h3 class="header-top-wrap-logo__title">DYNAMICS<br> MOSCOW</h3>
                     </div>
-                    <nav class="header-top-wrap-pages">
-                        <a href="" class="header-top-wrap-pages__title">О нас</a>
-                        <a href="" class="header-top-wrap-pages__title">Цена</a>
-                        <a href="" class="header-top-wrap-pages__title">Технологии</a>
-                        <a href="" class="header-top-wrap-pages__title">Портфолио</a>
-                        <a href="" class="header-top-wrap-pages__title">Продвижение</a>
-                        <a href="" class="header-top-wrap-pages__title">Блог</a>
-                        <a href="" class="header-top-wrap-pages__title">Контакты</a>
+                    <nav class="header-top-wrap-pages" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        <ul class="header-top-wrap-pages-list">
+                            <li class="header-top-wrap-pages-list__item">
+                                <a itemprop="url" href="#" class="header-top-wrap-pages-list__item--link">О нас</a>
+                            </li>
+                            <li class="header-top-wrap-pages-list__item">
+                                <a itemprop="url" href="#" class="header-top-wrap-pages-list__item--link">Цена</a>
+                            </li>
+                            <li class="header-top-wrap-pages-list__item">
+                                <a itemprop="url" href="#" class="header-top-wrap-pages-list__item--link">Технологии</a>
+                            </li>
+                            <li class="header-top-wrap-pages-list__item">
+                                <a itemprop="url" href="#" class="header-top-wrap-pages-list__item--link">Портфолио</a>
+                            </li>
+                            <li class="header-top-wrap-pages-list__item">
+                                <a itemprop="url" href="#"
+                                    class="header-top-wrap-pages-list__item--link">Продвижение</a>
+                            </li>
+                            <li class="header-top-wrap-pages-list__item">
+                                <a itemprop="url" href="#" class="header-top-wrap-pages-list__item--link">Блог</a>
+                            </li>
+                            <li class="header-top-wrap-pages-list__item">
+                                <a itemprop="url" href="#" class="header-top-wrap-pages-list__item--link">Контакты</a>
+                            </li>
+                        </ul>
                     </nav>
                     <div class="header-top-wrap-contacts">
                         <a href="tel:+7 (495) 241-38-62" class="header-top-wrap-contacts__tel">+7 (495) 241-38-62</a>
                         <button class="header-top-wrap-contacts__button main-btn popup-open">Продвинуть проект</button>
                     </div>
                     <button class="header-top-wrap__mobile-btn">
-                        <span class="header-top-wrap__mobile-btn--span">
-
-                        </span>
+                        <span class="header-top-wrap__mobile-btn--span"></span>
+                        <span class="header-top-wrap__mobile-btn--span"></span>
+                        <span class="header-top-wrap__mobile-btn--span"></span>
                     </button>
                 </div>
             </div>
@@ -54,10 +74,10 @@
                         Индивидуальный подход - Работаем на результат
                     </p>
                     <button class="header-bottom__button main-btn popup-open">Продвинуть проект</button>
-                    <lottie-player class="header-bottom__lottie"
-                        src="https://assets2.lottiefiles.com/private_files/lf30_lrvkwyo8.json" background="transparent"
-                        speed="1" loop autoplay></lottie-player>
-                    <svg class="header-bottom-info__scroll" width="24" height="42" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <lottie-player class="header-bottom__lottie" src="./json/header-lottie.json"
+                        background="transparent" speed="1" loop autoplay></lottie-player>
+                    <svg class="header-bottom-info__scroll" width="24" height="42" viewBox="0 0 24 42" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M12 5L12.53 4.47C12.3894 4.32955 12.1988 4.25066 12 4.25066C11.8012 4.25066 11.6106 4.32955 11.47 4.47L12 5ZM12 14.5L11.47 15.03C11.6106 15.1705 11.8012 15.2493 12 15.2493C12.1988 15.2493 12.3894 15.1705 12.53 15.03L12 14.5ZM9.47 6.47C9.33752 6.61217 9.2654 6.80022 9.26882 6.99452C9.27225 7.18882 9.35097 7.37421 9.48838 7.51162C9.62579 7.64903 9.81118 7.72775 10.0055 7.73117C10.1998 7.7346 10.3878 7.66248 10.53 7.53L9.47 6.47ZM13.47 7.53C13.5387 7.60369 13.6215 7.66279 13.7135 7.70378C13.8055 7.74477 13.9048 7.76681 14.0055 7.76859C14.1062 7.77037 14.2062 7.75184 14.2996 7.71412C14.393 7.6764 14.4778 7.62026 14.549 7.54904C14.6203 7.47782 14.6764 7.39299 14.7141 7.2996C14.7518 7.20621 14.7704 7.10618 14.7686 7.00548C14.7668 6.90477 14.7448 6.80546 14.7038 6.71346C14.6628 6.62146 14.6037 6.53866 14.53 6.47L13.47 7.53ZM10.53 11.97C10.4613 11.8963 10.3785 11.8372 10.2865 11.7962C10.1945 11.7552 10.0952 11.7332 9.99452 11.7314C9.89382 11.7296 9.79379 11.7482 9.7004 11.7859C9.60701 11.8236 9.52218 11.8797 9.45096 11.951C9.37974 12.0222 9.3236 12.107 9.28588 12.2004C9.24816 12.2938 9.22963 12.3938 9.23141 12.4945C9.23318 12.5952 9.25523 12.6945 9.29622 12.7865C9.33721 12.8785 9.39631 12.9613 9.47 13.03L10.53 11.97ZM14.53 13.03C14.6037 12.9613 14.6628 12.8785 14.7038 12.7865C14.7448 12.6945 14.7668 12.5952 14.7686 12.4945C14.7704 12.3938 14.7518 12.2938 14.7141 12.2004C14.6764 12.107 14.6203 12.0222 14.549 11.951C14.4778 11.8797 14.393 11.8236 14.2996 11.7859C14.2062 11.7482 14.1062 11.7296 14.0055 11.7314C13.9048 11.7332 13.8055 11.7552 13.7135 11.7962C13.6215 11.8372 13.5387 11.8963 13.47 11.97L14.53 13.03ZM3.25 10L3.25 16.75H4.75V10H3.25ZM20.75 16.75V10H19.25V16.75H20.75ZM11.25 5V14.5H12.75V5H11.25ZM11.47 4.47L9.47 6.47L10.53 7.53L12.53 5.53L11.47 4.47ZM11.47 5.53L13.47 7.53L14.53 6.47L12.53 4.47L11.47 5.53ZM12.53 13.97L10.53 11.97L9.47 13.03L11.47 15.03L12.53 13.97ZM12.53 15.03L14.53 13.03L13.47 11.97L11.47 13.97L12.53 15.03ZM20.75 10C20.75 7.67936 19.8281 5.45376 18.1872 3.81282C16.5462 2.17187 14.3206 1.25 12 1.25V2.75C13.9228 2.75 15.7669 3.51384 17.1265 4.87348C18.4862 6.23311 19.25 8.07718 19.25 10H20.75ZM12 25.5C13.1491 25.5 14.2869 25.2737 15.3485 24.8339C16.4101 24.3942 17.3747 23.7497 18.1872 22.9372C18.9997 22.1247 19.6442 21.1601 20.0839 20.0985C20.5237 19.0369 20.75 17.8991 20.75 16.75H19.25C19.25 18.6728 18.4862 20.5169 17.1265 21.8765C15.7669 23.2362 13.9228 24 12 24V25.5ZM3.25 16.75C3.25 19.0706 4.17187 21.2962 5.81282 22.9372C7.45376 24.5781 9.67936 25.5 12 25.5V24C10.0772 24 8.23311 23.2362 6.87348 21.8765C5.51384 20.5169 4.75 18.6728 4.75 16.75H3.25ZM4.75 10C4.75 8.07718 5.51384 6.23311 6.87348 4.87348C8.23311 3.51384 10.0772 2.75 12 2.75V1.25C9.67936 1.25 7.45376 2.17187 5.81282 3.81282C4.17187 5.45376 3.25 7.67936 3.25 10H4.75Z"
                             fill="#6CA9FF" />
@@ -71,18 +91,19 @@
         </div>
     </header>
     <main class="main">
-        <section class="services">
+        <section class="services" itemscope itemtype="http://schema.org/Product">
             <div class="container">
                 <h2 class="services__title">
                     Наши услуги:
                 </h2>
-                <article class="services-wrap">
+                <article class="services-wrap" itemscope itemtype="http://schema.org/AggregateOffer">
                     <lottie-player class="services-wrap__lottie"
                         src="https://assets5.lottiefiles.com/private_files/lf30_2ernxvha.json" background="transparent"
                         speed="1" loop autoplay></lottie-player>
                     <div class="services-wrap-text text-alight-right">
-                        <h3 class="services-wrap-text__title">Поисковая оптимизация</h3>
-                        <p class="services-wrap-text__subtitle">
+                        <meta itemprop="priceCurrency" content="RUB">
+                        <h3 class="services-wrap-text__title" itemprop="name">Поисковая оптимизация</h3>
+                        <p class="services-wrap-text__subtitle" itemprop="description">
                             Изменяем дизайн сайта согласно<br>
                             поведенческим факторам пользователей.<br>
                             <br>
@@ -94,15 +115,17 @@
                         </p>
                         <p class="services-wrap-text__price">
                             <span class="services-wrap-text__price--red">от <span
-                                    class="services-wrap-text__price--red services-wrap-text__price--bold">60
+                                    class="services-wrap-text__price--red services-wrap-text__price--bold"
+                                    itemprop="lowPrice">60
                                     000р</span></span>
                         </p>
                     </div>
                 </article>
-                <article class="services-wrap">
+                <article class="services-wrap" itemscope itemtype="http://schema.org/AggregateOffer">
                     <div class="services-wrap-text">
-                        <h3 class="services-wrap-text__title">Аудит вашего сайта</h3>
-                        <p class="services-wrap-text__subtitle">
+                        <meta itemprop="priceCurrency" content="RUB">
+                        <h3 class="services-wrap-text__title" itemprop="name">Аудит вашего сайта</h3>
+                        <p class="services-wrap-text__subtitle" itemprop="description">
                             После проведения аудита вы получаете рекомендации<br>
                             для внутренней оптимизации сайта по вашим ключевым<br>
                             запросам в поисковиках.<br>
@@ -112,7 +135,8 @@
                         </p>
                         <p class="services-wrap-text__price">
                             <span class="services-wrap-text__price--red">от <span
-                                    class="services-wrap-text__price--red services-wrap-text__price--bold">20
+                                    class="services-wrap-text__price--red services-wrap-text__price--bold"
+                                    itemprop="lowPrice">20
                                     000р</span></span>
                         </p>
                     </div>
@@ -177,7 +201,8 @@
                 </div>
             </div>
         </section>
-        <section class="examples">
+        <div class="sliders">
+            <!-- Floating cursor -->
             <div class="cursor">
                 <svg class="cursor-arrow" width="22" height="38" viewBox="0 0 22 38" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -189,129 +214,136 @@
                     <circle cx="5" cy="5" r="5" fill="black"></circle>
                 </svg>
             </div>
-            <div class="container">
-                <h2 class="examples__title">Примеры работ:</h2>
-                <div class="examples-slider owl-carousel owl-theme">
-                    <div class="item examples-slider-wrap">
-                        <div class="examples-slider-wrap-card">
-                            <h3 class="examples-slider-wrap-card__title">
-                                Smartex - оборудование<br>
-                                для инженерных систем
-                            </h3>
-                            <p class="examples-slider-wrap-card__subtitle">
-                                Большой сайт для розничного интернет-<br>
-                                магазина. Использована технология вывода <br>
-                                товаров по дополнительным свойствам, <br>
-                                которая позволяет работать с товарными <br>
-                                сериями, отличающимися, например, объемом <br>
-                                или мощностью, а форм-фактор одинаков.
-                            </p>
-                        </div>
-                        <div class="examples-slider-wrap-img">
-                            <div class="examples-slider-wrap-img-before">
-
+            <!-- /Floating cursor -->
+            <section class="examples">
+                <button class="examples__button examples__button--prev"></button>
+                <button class="examples__button examples__button--next"></button>
+                <div class="container">
+                    <h2 class="examples__title">Примеры работ:</h2>
+                    <div class="examples-swiper">
+                        <div class="swiper-wrapper examples-swiper-wrapper">
+                            <div class="swiper-slide examples-swiper-wrapper-slide">
+                                <div class="examples-swiper-wrapper-slide-card anim">
+                                    <h3 class="examples-swiper-wrapper-slide-card__title">
+                                        Smartex - оборудование<br>
+                                        для инженерных систем
+                                    </h3>
+                                    <p class="examples-swiper-wrapper-slide-card__subtitle">
+                                        Большой сайт для розничного интернет-
+                                        магазина. Использована технология вывода
+                                        товаров по дополнительным свойствам,
+                                        которая позволяет работать с товарными
+                                        сериями, отличающимися, например, объемом
+                                        или мощностью, а форм-фактор одинаков.
+                                    </p>
+                                </div>
+                                <div class="examples-swiper-wrapper-slide-img">
+                                    <div class="examples-swiper-wrapper-slide-img__data anim"></div>
+                                    <div class="examples-swiper-wrapper-slide-img__data anim"></div>
+                                    <img src="./img/promotion/examples/demonstration-1-img.webp" alt=""
+                                        class="examples-swiper-wrapper-slide-img__img anim">
+                                </div>
                             </div>
-                            <div class="examples-slider-wrap-img-after">
-
-                            </div>
-                            <lottie-player class="examples-slider-wrap-img__lottie" background="transparent" speed="1"
-                                style="width: 150px;" loop autoplay></lottie-player>
-                            <img src="./img/promotion/examples/demonstration-1-img.png" alt=""
-                                class="examples-slider-wrap-img__img">
-                            <!-- <img src="./img/promotion/circle-chart.svg" alt="" class="examples-silder-wrap-img__data">
-                            <img src="./img/promotion/graph-chart.svg" alt="" class="examples-silder-wrap-img__data"> -->
-                        </div>
-                    </div>
-                    <div class="item examples-slider-wrap">
-                        <div class="examples-slider-wrap-card">
-                            <h3 class="examples-slider-wrap-card__title">
-                                CALIPSO GROUP - надёжный<br>
-                                таможенный брокер
-                            </h3>
-                            <p class="examples-slider-wrap-card__subtitle">
-                                Вывели в топ 10 по высокочастотным запросам. <br>
-                                Обновили политику работы с клиентами <br>
-                                Подняли узнаваемость бренда <br>
-                                <br>
-                                Итог - успешная компания <br>
-                                Крупные доходы. <br>
-                            </p>
-                        </div>
-                        <div class="examples-slider-wrap-img">
-                            <img src="./img/promotion/examples/demonstration-2-img.png" alt=""
-                                class="examples-slider-wrap-img__img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="reviews">
-            <div class="container">
-                <h2 class="reviews__title">письма благодарности:</h2>
-                <div class="reviews-slider owl-carousel owl-theme">
-                    <div class="reviews-slider-wrap">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <img src="./img/promotion/reviews/letter-img.png" alt=""
-                                    class="reviews-slider-wrap__img">
-                            </div>
-                            <div class="col-lg-7">
-                                <p class="reviews-slider-wrap__title">
-                                    С компанией M-Dynamics мы работаем над 2 проектами - над
-                                    корпоративным сайтом и над нашим интернет-магазином. Легкое
-                                    и быстрое общение, точно и быстро выполнены задания -
-                                    основные преимущества в работе с компанией и нашим
-                                    менеджером в компании, Михаилом Решетником! Чтобы
-                                    подчеркнуть - поскольку веб-сервисы не являются нашей
-                                    специализацией, но в этом деле профессионал наш партнер, M
-                                    Dynamics, мы чувствуем себя очень комфортно, когда они могут
-                                    объяснить нам важные, но технически сложный детали, на языке,
-                                    который мы легко понимаем.
-                                </p>
-                                <p class="reviews-slider-wrap__subtitle">- AVK GmbH</p>
-                                <img src="./img/promotion/reviews/rocket-icon.svg" alt=""
-                                    class="reviews-slider-wrap__icon">
+                            <div class="swiper-slide examples-swiper-wrapper-slide">
+                                <div class="examples-swiper-wrapper-slide-card anim">
+                                    <h3 class="examples-swiper-wrapper-slide-card__title">
+                                        CALIPSO GROUP - надёжный<br>
+                                        таможенный брокер
+                                    </h3>
+                                    <p class="examples-swiper-wrapper-slide-card__subtitle">
+                                        Вывели в топ 10 по высокочастотным запросам.
+                                        Обновили политику работы с клиентами
+                                        Подняли узнаваемость бренда <br>
+                                        <br>
+                                        Итог - успешная компания
+                                        Крупные доходы.
+                                    </p>
+                                </div>
+                                <div class="examples-swiper-wrapper-slide-img">
+                                    <div class="examples-swiper-wrapper-slide-img__item anim"></div>
+                                    <div class="examples-swiper-wrapper-slide-img__item anim"></div>
+                                    <div class="examples-swiper-wrapper-slide-img__item anim"></div>
+                                    <img src="./img/promotion/examples/demonstration-2-img.webp" alt=""
+                                        class="examples-swiper-wrapper-slide-img__image--mobile">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="reviews-slider-wrap">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <img src="./img/promotion/reviews/letter-img.png" alt=""
-                                    class="reviews-slider-wrap__img">
-                            </div>
-                            <div class="col-lg-7">
-                                <p class="reviews-slider-wrap__title">
-                                    С компанией M-Dynamics мы работаем над 2 проектами - над
-                                    корпоративным сайтом и над нашим интернет-магазином. Легкое
-                                    и быстрое общение, точно и быстро выполнены задания -
-                                    основные преимущества в работе с компанией и нашим
-                                    менеджером в компании, Михаилом Решетником! Чтобы
-                                    подчеркнуть - поскольку веб-сервисы не являются нашей
-                                    специализацией, но в этом деле профессионал наш партнер, M
-                                    Dynamics, мы чувствуем себя очень комфортно, когда они могут
-                                    объяснить нам важные, но технически сложный детали, на языке,
-                                    который мы легко понимаем.
-                                </p>
-                                <p class="reviews-slider-wrap__subtitle">- AVK GmbH</p>
-                                <img src="./img/promotion/reviews/rocket-icon.svg" alt=""
-                                    class="reviews-slider-wrap__icon">
-                            </div>
-                        </div>
+                        <div class="swiper-pagination examples-swiper-pagination"></div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            <section class="reviews">
+                <button class="examples__button reviews__button--prev"></button>
+                <button class="examples__button reviews__button--next"></button>
+                <div class="container">
+                    <h2 class="reviews__title">ПИСЬМА БЛАГОДАРНОСТИ</h2>
+                    <div class="reviews-swiper">
+                        <div class="swiper-wrapper reviews-swiper-wrapper">
+                            <div class="swiper-slide reviews-swiper-wrapper-slide">
+                                <div class="reviews-swiper-wrapper-slide-img anim">
+                                    <img src="./img/promotion/reviews/letter-img.webp" alt=""
+                                        class="reviews-swiper-wrapper-slide-img__img">
+                                </div>
+                                <div class="reviews-swiper-wrapper-slide-card anim">
+                                    <p class="reviews-swiper-wrapper-slide-card__title">
+                                        С компанией M-Dynamics мы работаем над 2 проектами - над
+                                        корпоративным сайтом и над нашим интернет-магазином. Легкое
+                                        и быстрое общение, точно и быстро выполнены задания -
+                                        основные преимущества в работе с компанией и нашим
+                                        менеджером в компании, Михаилом Решетником! Чтобы
+                                        подчеркнуть - поскольку веб-сервисы не являются нашей
+                                        специализацией, но в этом деле профессионал наш партнер, M
+                                        Dynamics, мы чувствуем себя очень комфортно, когда они могут
+                                        объяснить нам важные, но технически сложный детали, на языке,
+                                        который мы легко понимаем.
+                                    </p>
+                                    <p class="reviews-swiper-wrapper-slide-card__subtitle">
+                                        - AVK GmbH
+                                    </p>
+                                    <img src="./img/promotion/reviews/rocket-icon.svg" alt=""
+                                        class="reviews-swiper-wrapper-slide-card__img">
+                                </div>
+                            </div>
+                            <div class="swiper-slide reviews-swiper-wrapper-slide">
+                                <div class="reviews-swiper-wrapper-slide-img anim">
+                                    <img src="./img/promotion/reviews/letter-img.webp" alt=""
+                                        class="reviews-swiper-wrapper-slide-img__img">
+                                </div>
+                                <div class="reviews-swiper-wrapper-slide-card anim">
+                                    <p class="reviews-swiper-wrapper-slide-card__title">
+                                        С компанией M-Dynamics мы работаем над 2 проектами - над
+                                        корпоративным сайтом и над нашим интернет-магазином. Легкое
+                                        и быстрое общение, точно и быстро выполнены задания -
+                                        основные преимущества в работе с компанией и нашим
+                                        менеджером в компании, Михаилом Решетником! Чтобы
+                                        подчеркнуть - поскольку веб-сервисы не являются нашей
+                                        специализацией, но в этом деле профессионал наш партнер, M
+                                        Dynamics, мы чувствуем себя очень комфортно, когда они могут
+                                        объяснить нам важные, но технически сложный детали, на языке,
+                                        который мы легко понимаем.
+                                    </p>
+                                    <p class="reviews-swiper-wrapper-slide-card__subtitle">
+                                        - AVK GmbH
+                                    </p>
+                                    <img src="./img/promotion/reviews/rocket-icon.svg" alt=""
+                                        class="reviews-swiper-wrapper-slide-card__img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination reviews-swiper-pagination"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
         <section class="total">
             <div class="container">
                 <div class="total-headline">
                     <h2 class="total-headline__title">Что в итоге...</h2>
-                    <h2 class="total-headline__title total-headline__title--right">- 3 простых шага</h2>
+                    <h2 class="total-headline__title">- 3 простых шага</h2>
                 </div>
                 <div class="total-wrap">
                     <article class="total-wrap-card">
-                        <lottie-player class="total-wrap-card__lottie"
-                            src="https://assets5.lottiefiles.com/private_files/lf30_vi52ez5h.json"
+                        <lottie-player class="total-wrap-card__lottie" src="./json/total-lottie-1.json"
                             background="transparent" speed="1" style="width: 150px;" hover loop></lottie-player>
                         <p class="total-wrap-card__title">
                             Оставить<br>
@@ -319,8 +351,7 @@
                         </p>
                     </article>
                     <article class="total-wrap-card-card">
-                        <lottie-player class="total-wrap-card__lottie"
-                            src="https://assets1.lottiefiles.com/private_files/lf30_8i1av3te.json"
+                        <lottie-player class="total-wrap-card__lottie" src="./json/total-lottie-2.json"
                             background="transparent" speed="1" style="width: 180px;" hover loop></lottie-player>
                         <p class="total-wrap-card__title">
                             продвинуть<br>
@@ -328,8 +359,7 @@
                         </p>
                     </article>
                     <article class="total-card-wrap">
-                        <lottie-player class="total-wrap-card__lottie"
-                            src="https://assets10.lottiefiles.com/private_files/lf30_fwtlncd8.json"
+                        <lottie-player class="total-wrap-card__lottie" src="./json/total-lottie-3.json"
                             background="transparent" speed="1" style="width: 150px;" hover loop></lottie-player>
                         <p class="total-wrap-card__title">
                             получать<br>
@@ -386,22 +416,27 @@
             </div>
         </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
         <div class="container">
             <div class="footer-wrap">
                 <article class="footer-wrap-left">
-                    <img src="./img/promotion/Logo-img.png" alt="" class="footer-wrap-left__logo">
+                    <img itemprop="image" src="./img/promotion/Logo-img.png" alt="" class="footer-wrap-left__logo">
                     <p class="footer-wrap-left__title">
                         DYNAMICS MOSCOW
                     </p>
-                    <p class="footer-wrap-left__copyright">
+                    <meta itemprop="copyrightHolder" content="DYNAMICS MOSCOW">
+                    <p itemprop="copyrightYear" class="footer-wrap-left__copyright">
                         © 2021
                     </p>
                 </article>
-                <article class="footer-wrap-right">
-                    <p class="footer-wrap-right__post">Email:</p>
-                    <a href="ar@dynamics.moscow" class="footer-wrap-right__mail">ar@dynamics.moscow</a>
-                    <a href="tel:+7 (495) 241-38-62" class="footer-wrap-right__tel">+7 (495) 241-38-62</a>
+                <article class="footer-wrap-right" itemscope itemtype="http://schema.org/Organization">
+                    <p class="footer-wrap-left__copyright footer-wrap-left__copyright--mobile">
+                        © 2021
+                    </p>
+                    <a itemprop="email" href="ar@dynamics.moscow" class="footer-wrap-right__mail"><span
+                            class="footer-wrap-right__mail--post">Email:</span> ar@dynamics.moscow</a>
+                    <a itemprop="telephone" href="tel:+7 (495) 241-38-62" class="footer-wrap-right__tel">+7 (495)
+                        241-38-62</a>
                 </article>
             </div>
         </div>
@@ -579,8 +614,7 @@
             <!-- tab 7 -->
             <div class="quiz-popup-main tab">
 
-                <lottie-player class="quiz-popup-main__lottie"
-                    src="https://assets9.lottiefiles.com/private_files/lf30_an2qtvwu.json" background="transparent"
+                <lottie-player class="quiz-popup-main__lottie" src="./json/quiz-lottie.json" background="transparent"
                     speed="1" style="width: 472px; height: 300px;" loop autoplay>
                 </lottie-player>
 
@@ -611,7 +645,7 @@
     </div>
     <!-- /FORM POPUP -->
     <!-- PRELOADER -->
-    <!-- <div class="preloader-container">
+    <div class="preloader-container">
         <div class="preloader-wrap">
             <p class="preloader-wrap__text">загружаем...</p>
             <div class="preloader-wrap-progress">
@@ -619,18 +653,15 @@
                 <div class="preloader-wrap-progress__line"></div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- /PRELOADER -->
     <div class="header-top-mobile-container">
 
     </div>
     <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./owlslider/owl.carousel.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="./js/swiper-bundle.min.js"></script>
+    <script src="./js/lottie-player.min.js"></script>
     <script src="./js/jquery.inputmask.min.js"></script>
-    <script src="./js/quiz.js"></script>
-    <!-- <script src="./js/preloader.js"></script> -->
-    <script src="./js/slider-cursor.js"></script>
     <script src="./js/promotion.js"></script>
 </body>
 
