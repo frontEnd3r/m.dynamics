@@ -104,17 +104,17 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //CUSTOM CURSOR POINTER ON HOVER 
-  // const buttons = [...document.querySelectorAll(".swiper-pagination-bullet")];
+  //CUSTOM CURSOR POINTER ON HOVER
+  const buttons = [...document.querySelectorAll(".swiper-pagination-bullet")];
 
-  // buttons.forEach(function (i) {
-  //   i.addEventListener("mouseover", function () {
-  //     cursor.classList.add("point");
-  //   });
-  //   i.addEventListener("mouseout", function () {
-  //     cursor.classList.remove("point");
-  //   });
-  // });
+  buttons.forEach(function (i) {
+    i.addEventListener("mouseover", function () {
+      cursor.classList.add("point");
+    });
+    i.addEventListener("mouseout", function () {
+      cursor.classList.remove("point");
+    });
+  });
 
   // CURSOR MOVE
   if (window.matchMedia("(min-width: 400px)").matches) {
@@ -133,64 +133,90 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 
     // SLIDES CHANGING
-    let examplesSlider = container.querySelector(".examples");
-    let reviewsSlider = container.querySelector(".reviews");
-    let examplesPrev = container.querySelector(".examples__button--prev");
-    let examplesNext = container.querySelector(".examples__button--next");
-    let reviewsPrev = container.querySelector(".reviews__button--prev");
-    let reviewsNext = container.querySelector(".reviews__button--next");
 
-    examplesPrev.addEventListener('click', () => {
-      let checked = checkSlides(sliderExamples);
+    let slidersControllers = [
+      {
+        container: container.querySelector(".examples"),
+        prev: container.querySelector(".examples__button--prev"),
+        next: container.querySelector(".examples__button--next"),
+        pagination: container.querySelector('.examples-swiper-pagination'),
+        slider: sliderExamples,
+      },
+      {
+        container: container.querySelector(".reviews"),
+        prev: container.querySelector(".reviews__button--prev"),
+        next: container.querySelector(".reviews__button--next"),
+        pagination: container.querySelector('.reviews-swiper-pagination'),
+        slider: sliderGratitude,
+      },
+    ]
+
+    function customSlideNext(sliderController) {
+        let checked = checkSlides(sliderController.slider);
+        if (checked === 'noright') {
+          return;
+        }
+        let pictureArr = [...sliderController.container.querySelectorAll('.anim')];
+        toggleClass(pictureArr);
+        setTimeout(() => {
+          sliderController.slider.slideNext(0);
+          toggleClass(pictureArr);
+        }, 2000);
+    }
+
+    function customSlidePrev(sliderController) {
+      let checked = checkSlides(sliderController.slider);
       if (checked === 'noleft') {
         return;
       }
-      let pictureArr = [...examplesSlider.querySelectorAll('.anim')];
+      let pictureArr = [...sliderController.container.querySelectorAll('.anim')];
       toggleClass(pictureArr);
       setTimeout(() => {
-        sliderExamples.slidePrev(0);
+        sliderController.slider.slidePrev(0);
         toggleClass(pictureArr);
       }, 2000);
-    });
-
-    examplesNext.addEventListener('click', () => {
-      let checked = checkSlides(sliderExamples);
-      if (checked === 'noright') {
-        return;
+    }
+    function customPagination(sliderController, slideDirection) {
+      if (slideDirection === 'next') {
+        customSlideNext(sliderController);
+      } else if (slideDirection === 'prev') {
+        customSlidePrev(sliderController);
       }
-      let pictureArr = [...examplesSlider.querySelectorAll('.anim')];
-      toggleClass(pictureArr);
-      setTimeout(() => {
-        sliderExamples.slideNext(0);
-        toggleClass(pictureArr);
-      }, 2000);
-    });
+      // switch(this.html) {
+      //   case '1':
+      //     customSlidePrev(sliderController);
+      //     break;
+      //   case '2':
+      //     customSlideNext(sliderController);
+      //     break;
+      // }
+    }
 
-    reviewsPrev.addEventListener('click', () => {
-      let checked = checkSlides(sliderGratitude);
-      if (checked === 'noleft') {
-        return;
-      }
-      let pictureArr = [...reviewsSlider.querySelectorAll('.anim')];
-      toggleClass(pictureArr);
-      setTimeout(() => {
-        sliderGratitude.slidePrev(0);
-        toggleClass(pictureArr);
-      }, 2000);
-    });
+    slidersControllers.forEach((sliderController) => {
+      sliderController.next.addEventListener('click', () => {
+        customSlideNext(sliderController);
+      })
+      sliderController.prev.addEventListener('click', () => {
+        customSlidePrev(sliderController);
+      })
+      const bullets = [...sliderController.pagination.querySelectorAll('.swiper-pagination-bullet')]
+      bullets.forEach(bullet => {
+        bullet.addEventListener('click', (event) => {
+          let activeBulletNumber = +sliderController.container.querySelector('.swiper-pagination-bullet-active').innerText;
+          let clickedBulletNumber = +event.target.innerText;
+          let slideDirection = '';
+          if (activeBulletNumber < clickedBulletNumber) {
+            slideDirection = 'next'
+          } else if (activeBulletNumber > clickedBulletNumber) {
+            slideDirection = 'prev'
+          }
+          console.log(slideDirection)
+          console.log(clickedBulletNumber, activeBulletNumber)
+          customPagination(sliderController, slideDirection);
+        });
+      })
+    })
 
-    reviewsNext.addEventListener('click', () => {
-      let checked = checkSlides(sliderGratitude);
-      if (checked === 'noright') {
-        return;
-      }
-      let pictureArr = [...reviewsSlider.querySelectorAll('.anim')];
-      toggleClass(pictureArr);
-      setTimeout(() => {
-        sliderGratitude.slideNext(0);
-        toggleClass(pictureArr);
-      }, 2000);
-    });
   }
 
 });
@@ -300,31 +326,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // PRELOADER
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
 
-  function preloaderInit() {
-    const preloaderContainer = document.querySelector(".preloader-container");
-    const preloaderRocket = document.querySelector(".preloader-wrap-progress__rocket");
-    const preloaderProgressLine = document.querySelector(".preloader-wrap-progress__line");
+//   function preloaderInit() {
+//     const preloaderContainer = document.querySelector(".preloader-container");
+//     const preloaderRocket = document.querySelector(".preloader-wrap-progress__rocket");
+//     const preloaderProgressLine = document.querySelector(".preloader-wrap-progress__line");
 
-    let width = 1;
-    let interval = setInterval(progressStatus, 0);
-    function progressStatus() {
-      while (width < 100) {
-        preloaderProgressLine.style.width = width + '%';
-        preloaderRocket.style.left = (width - 15) + '%';
-        preloaderProgressLine.style.width = width + '%';
-        width += 1;
-        if (width === 100 && document.readyState == 'complete') {
-          clearInterval(interval);
-          preloaderContainer.style.display = "none";
-        }
-        return;
-      }
-    }
-  }
-  preloaderInit();
-});
+//     let width = 1;
+//     let interval = setInterval(progressStatus, 500);
+//     function progressStatus() {
+//       while (width < 100) {
+//         setTimeout(() => {
+//           preloaderProgressLine.style.width = width + '%';
+//           preloaderRocket.style.left = (width - 15) + '%';
+//           preloaderProgressLine.style.width = width + '%';
+//           width += 1;
+//           if (width === 100 && document.readyState == 'complete') {
+//             clearInterval(interval);
+//             preloaderContainer.style.display = "none";
+//           }
+//           return;
+//         }, 500)
+//       }
+//     }
+//   }
+//   preloaderInit();
+// });
 
 
 jQuery.event.special.touchstart = {
@@ -347,4 +375,3 @@ jQuery.event.special.mousewheel = {
     this.addEventListener("mousewheel", handle, { passive: true });
   }
 };
-
