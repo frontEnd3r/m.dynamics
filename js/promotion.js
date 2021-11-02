@@ -1,4 +1,5 @@
 
+
 $(document).ready(function () {
 
   // HEADER FIXED
@@ -31,7 +32,7 @@ $(document).ready(function () {
 });
 
 // SLIDER & CURSOR
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", () => {
 
   let pictureArr = [...document.querySelectorAll('.anim')];
   const container = document.querySelector(".sliders");
@@ -89,7 +90,7 @@ window.addEventListener("DOMContentLoaded", function () {
     loop: false,
     spaceBetween: 1000,
     grabCursor: false,
-    allowTouchMove: false,
+    allowTouchMove: true,
     pagination: {
       el: '.swiper-pagination',
       clickable: false,
@@ -97,132 +98,129 @@ window.addEventListener("DOMContentLoaded", function () {
         return '<span class="' + className + '">' + (index + 1) + '</span>';
       }
     },
-    breakpoints: {
-      768: {
-        allowTouchMove: true,
-      },
-    }
   });
 
   //CUSTOM CURSOR POINTER ON HOVER
   const buttons = [...document.querySelectorAll(".swiper-pagination-bullet")];
 
   buttons.forEach(function (i) {
-    i.addEventListener("mouseover", function () {
+    i.addEventListener("mouseover", () => {
       cursor.classList.add("point");
     });
-    i.addEventListener("mouseout", function () {
+    i.addEventListener("mouseout", () => {
       cursor.classList.remove("point");
     });
   });
 
   // CURSOR MOVE
-  if (window.matchMedia("(min-width: 400px)").matches) {
-    container.addEventListener("mousemove", function (e) {
-      let clientRect = container.getBoundingClientRect()
-      let posX = e.clientX - clientRect.left;
-      let posY = e.clientY - clientRect.top;
 
-      cursor.style.transform = `translate3d(${(posX - 45)}px, ${(posY - 40)}px, 0)`;
+  container.addEventListener("mousemove", (e) => {
+    let clientRect = container.getBoundingClientRect()
+    let posX = e.clientX - clientRect.left;
+    let posY = e.clientY - clientRect.top;
 
-      if (posX <= container.clientWidth / 2) {
-        arrow.classList.add("cursor-arrow-left");
-      } else {
-        arrow.classList.remove("cursor-arrow-left");
-      }
-    });
+    cursor.style.transform = `translate3d(${(posX - 45)}px, ${(posY - 40)}px, 0)`;
 
-    // SLIDES CHANGING
-
-    let slidersControllers = [
-      {
-        container: container.querySelector(".examples"),
-        prev: container.querySelector(".examples__button--prev"),
-        next: container.querySelector(".examples__button--next"),
-        pagination: container.querySelector('.examples-swiper-pagination'),
-        slider: sliderExamples,
-      },
-      {
-        container: container.querySelector(".reviews"),
-        prev: container.querySelector(".reviews__button--prev"),
-        next: container.querySelector(".reviews__button--next"),
-        pagination: container.querySelector('.reviews-swiper-pagination'),
-        slider: sliderGratitude,
-      },
-    ]
-
-    function customSlideNext(sliderController) {
-        let checked = checkSlides(sliderController.slider);
-        if (checked === 'noright') {
-          return;
-        }
-        let pictureArr = [...sliderController.container.querySelectorAll('.anim')];
-        toggleClass(pictureArr);
-        setTimeout(() => {
-          sliderController.slider.slideNext(0);
-          toggleClass(pictureArr);
-        }, 2000);
+    if (posX <= container.clientWidth / 2) {
+      arrow.classList.add("cursor-arrow-left");
+    } else {
+      arrow.classList.remove("cursor-arrow-left");
     }
+  });
 
-    function customSlidePrev(sliderController) {
-      let checked = checkSlides(sliderController.slider);
-      if (checked === 'noleft') {
-        return;
-      }
-      let pictureArr = [...sliderController.container.querySelectorAll('.anim')];
+  // SLIDES CHANGING
+
+  let slidersControllers = [
+    {
+      container: container.querySelector(".examples"),
+      prev: container.querySelector(".examples__button--prev"),
+      next: container.querySelector(".examples__button--next"),
+      pagination: container.querySelector('.examples-swiper-pagination'),
+      slider: sliderExamples,
+    },
+    {
+      container: container.querySelector(".reviews"),
+      prev: container.querySelector(".reviews__button--prev"),
+      next: container.querySelector(".reviews__button--next"),
+      pagination: container.querySelector('.reviews-swiper-pagination'),
+      slider: sliderGratitude,
+    },
+  ]
+
+  function customSlideNext(sliderController) {
+    let checked = checkSlides(sliderController.slider);
+    if (checked === 'noright') {
+      return;
+    }
+    let pictureArr = [...sliderController.container.querySelectorAll('.anim')];
+    toggleClass(pictureArr);
+    setTimeout(() => {
+      sliderController.slider.slideNext(0);
       toggleClass(pictureArr);
-      setTimeout(() => {
-        sliderController.slider.slidePrev(0);
-        toggleClass(pictureArr);
-      }, 2000);
-    }
-    function customPagination(sliderController, slideDirection) {
-      if (slideDirection === 'next') {
-        customSlideNext(sliderController);
-      } else if (slideDirection === 'prev') {
-        customSlidePrev(sliderController);
-      }
-      // switch(this.html) {
-      //   case '1':
-      //     customSlidePrev(sliderController);
-      //     break;
-      //   case '2':
-      //     customSlideNext(sliderController);
-      //     break;
-      // }
-    }
-
-    slidersControllers.forEach((sliderController) => {
-      sliderController.next.addEventListener('click', () => {
-        customSlideNext(sliderController);
-      })
-      sliderController.prev.addEventListener('click', () => {
-        customSlidePrev(sliderController);
-      })
-      const bullets = [...sliderController.pagination.querySelectorAll('.swiper-pagination-bullet')]
-      bullets.forEach(bullet => {
-        bullet.addEventListener('click', (event) => {
-          let activeBulletNumber = +sliderController.container.querySelector('.swiper-pagination-bullet-active').innerText;
-          let clickedBulletNumber = +event.target.innerText;
-          let slideDirection = '';
-          if (activeBulletNumber < clickedBulletNumber) {
-            slideDirection = 'next'
-          } else if (activeBulletNumber > clickedBulletNumber) {
-            slideDirection = 'prev'
-          }
-          console.log(slideDirection)
-          console.log(clickedBulletNumber, activeBulletNumber)
-          customPagination(sliderController, slideDirection);
-        });
-      })
-    })
-
+    }, 2000);
   }
+
+  function customSlidePrev(sliderController) {
+    let checked = checkSlides(sliderController.slider);
+    if (checked === 'noleft') {
+      return;
+    }
+    let pictureArr = [...sliderController.container.querySelectorAll('.anim')];
+    toggleClass(pictureArr);
+    setTimeout(() => {
+      sliderController.slider.slidePrev(0);
+      toggleClass(pictureArr);
+    }, 2000);
+  }
+  function customPagination(sliderController, slideDirection) {
+    if (slideDirection === 'next') {
+      customSlideNext(sliderController);
+    } else if (slideDirection === 'prev') {
+      customSlidePrev(sliderController);
+    }
+    // switch(this.html) {
+    //   case '1':
+    //     customSlidePrev(sliderController);
+    //     break;
+    //   case '2':
+    //     customSlideNext(sliderController);
+    //     break;
+    // }
+  }
+
+  slidersControllers.forEach((sliderController) => {
+    sliderController.next.addEventListener('click', () => {
+      customSlideNext(sliderController);
+    })
+    sliderController.prev.addEventListener('click', () => {
+      customSlidePrev(sliderController);
+    })
+    const bullets = [...sliderController.pagination.querySelectorAll('.swiper-pagination-bullet')]
+    bullets.forEach(bullet => {
+      bullet.addEventListener('click', (event) => {
+        let activeBulletNumber = +sliderController.container.querySelector('.swiper-pagination-bullet-active').innerText;
+        let clickedBulletNumber = +event.target.innerText;
+        let slideDirection = '';
+        if (activeBulletNumber < clickedBulletNumber) {
+          slideDirection = 'next'
+        } else if (activeBulletNumber > clickedBulletNumber) {
+          slideDirection = 'prev'
+        }
+        console.log(slideDirection)
+        console.log(clickedBulletNumber, activeBulletNumber)
+        customPagination(sliderController, slideDirection);
+      });
+    })
+  })
+
+
 
 });
 
 // QUIZ FORM
 document.addEventListener("DOMContentLoaded", () => {
+
+  loader();
 
   const tabs = document.getElementsByClassName("tab");
   const popupOpen = [...document.querySelectorAll(".popup-open")];
@@ -326,33 +324,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // PRELOADER
-// document.addEventListener("DOMContentLoaded", () => {
 
-//   function preloaderInit() {
-//     const preloaderContainer = document.querySelector(".preloader-container");
-//     const preloaderRocket = document.querySelector(".preloader-wrap-progress__rocket");
-//     const preloaderProgressLine = document.querySelector(".preloader-wrap-progress__line");
+function loader() {
 
-//     let width = 1;
-//     let interval = setInterval(progressStatus, 500);
-//     function progressStatus() {
-//       while (width < 100) {
-//         setTimeout(() => {
-//           preloaderProgressLine.style.width = width + '%';
-//           preloaderRocket.style.left = (width - 15) + '%';
-//           preloaderProgressLine.style.width = width + '%';
-//           width += 1;
-//           if (width === 100 && document.readyState == 'complete') {
-//             clearInterval(interval);
-//             preloaderContainer.style.display = "none";
-//           }
-//           return;
-//         }, 500)
-//       }
-//     }
-//   }
-//   preloaderInit();
-// });
+  const preloaderContainer = document.querySelector(".preloader-container");
+  const preloaderRocket = document.querySelector(".preloader-wrap-progress__rocket");
+  const preloaderProgressLine = document.querySelector(".preloader-wrap-progress__line");
+
+
+  let progress = 0,
+    t = setInterval(function () {
+      progress += 1;
+      preloaderProgressLine.style.width = progress + '%';
+      preloaderRocket.style.left = (progress - 15) + '%';
+      if (progress === 100) {
+        preloaderContainer.style.display = "none";
+        clearInterval(t);
+      }
+    }, 40);
+}
 
 
 jQuery.event.special.touchstart = {

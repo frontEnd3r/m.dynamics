@@ -90,6 +90,7 @@ header, main, footer
 .sliders
     overflow: hidden
     position: relative
+    cursor: none
 
 // HEADER
 .header
@@ -314,6 +315,7 @@ header, main, footer
     position: relative
     cursor: none
     &__button
+        cursor: none
         &:nth-child(1)
             position: absolute
             top: 0
@@ -407,6 +409,8 @@ header, main, footer
                         &--mobile
                             width: 679px
                             display: none
+                            transform: translateX(100%)
+                            @include transition-mix(all, 1s, ease-in-out, 0s)
                     &-after
                         position: absolute
 
@@ -753,6 +757,7 @@ textarea
                 color: #FFFFFF
                 &--mobile
                     display: none
+
         &-right
             display: flex
             align-items: center
@@ -984,7 +989,7 @@ input::-webkit-input-placeholder
         display: flex
         align-items: center
         justify-content: center
-        z-index: 20
+        z-index: 10000
         background: rgba(255, 79, 70, 0.5)
         backdrop-filter: blur(15px)
     &-wrap
@@ -1022,6 +1027,7 @@ input::-webkit-input-placeholder
                 height: 100%
                 background-color: #FFF6EA
                 z-index: 20
+                @include transition-mix(all,.3s)
 
 // CURSOR
 .cursor
@@ -1103,7 +1109,7 @@ input::-webkit-input-placeholder
         top: -260px
         width: 600px
         height: 500px
-    
+
     .header-bottom-info__title
         font-size: 30px
     .header-bottom-info__subtitle
@@ -1142,14 +1148,14 @@ input::-webkit-input-placeholder
     .cursor
         display: none
     .header
-        padding-bottom: 150px
+        padding-bottom: 120px
 
     .header-top-wrap-logo
         margin-right: 0
     .header-top-wrap
         position: relative
         z-index: 5
-       
+
     .header-top-wrap-pages
         position: absolute
         display: none
@@ -1264,6 +1270,9 @@ input::-webkit-input-placeholder
         text-align: center
         font-size: 24px
         margin-bottom: 30px
+    .examples__button:nth-child(1),
+    .examples__button:nth-child(2)
+        width: 10%
     .examples-swiper-wrapper-slide
         flex-direction: column
     .examples-swiper-wrapper-slide-card__subtitle
@@ -1274,6 +1283,16 @@ input::-webkit-input-placeholder
         display: none
     .examples-swiper-wrapper-slide-img__image--mobile
         display: block
+    .examples-swiper-wrapper-slide-img:nth-child(2)
+        height: unset
+    .examples-swiper-wrapper-slide-img__img
+        width: 100%
+    .examples-swiper-wrapper-slide-img__data
+        width: 250px
+        height: 80px
+    .examples-swiper-wrapper-slide-img__image--mobile
+        width: 100%
+
     .reviews-swiper-wrapper-slide
         flex-direction: column
     .reviews-swiper-wrapper-slide__img
@@ -1285,6 +1304,9 @@ input::-webkit-input-placeholder
         text-align: center
         font-size: 24px
         margin-bottom: 30px
+    .reviews-swiper-wrapper-slide-img
+        margin-bottom: 30px
+
     .total
         padding-top: 60px
         padding-bottom: 60px
@@ -1373,7 +1395,20 @@ input::-webkit-input-placeholder
         display: none
     .offer-form-wrap__lottie
         left: 28%
-
+    .examples-swiper-wrapper-slide-img__data:nth-child(1)
+        left: 25px
+        top: 20px
+    .examples-swiper-wrapper-slide-img__data
+        width: 150px
+        height: 55px
+    .reviews-swiper-wrapper-slide-img__img
+        width: 200px
+    .reviews-swiper-wrapper-slide-card__title
+        font-size: 14px
+    .examples-swiper-wrapper-slide-card__subtitle
+        font-size: 14px
+        br
+            display: none
 .container
     width: 100%
     padding-right: 15px
